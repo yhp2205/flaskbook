@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <il class="center">
+        <title>문의 완료</title>
+    </il>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css' ) }}" />
+</head>
+
+<body>
+    <il class="center">
+        <h2>문의 완료</h2>
+        <p>문의 감사합니다 좋은 하루 되세요!</p>
+    </il>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+
+</html>

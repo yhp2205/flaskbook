@@ -1,0 +1,14 @@
+body {
+    background-color: #f5f5f5;
+}
+h1 {
+   margin-top: 20px;
+   color: palevioletred;
+   text-decoration: underline;
+}
+.flash {
+    color: palevioletred;
+}
+.center {
+    text-align:center;
+}

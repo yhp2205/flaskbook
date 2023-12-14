@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>문의 폼</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css' ) }}" />
+</head>
+
+<body>
+    <h2>문의 폼</h2>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li class="flash">{{ message }}😄</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('contact_complete') }}" method="POST" novalidate="novalidate">
+        <table>
+            <tr>
+                <td>사용자명</td>
+                <td>
+                    <input type="text" name="username" value="{{ username }}" placeholder="사용자명" />
+                </td>
+            </tr>
+            <tr>
+                <td>메일 주소</td>
+                <td>
+                    <input type="text" name="email" value="{{ email }}" placeholder="메일 주소" />
+                </td>
+            </tr>
+            <tr>
+                <td>문의 내용</td>
+                <td>
+                    <textarea name="description" placeholder="문의 내용">{{ description }}</textarea>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="문의" />
+    </form>
+</body>
+
+</html>
