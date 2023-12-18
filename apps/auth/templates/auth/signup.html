@@ -1,0 +1,26 @@
+{% extends "auth/base.html" %}
+
+{% block title %}사용자 신규 등록{% endblock %}
+
+{% block content %}
+<div class="mx-auto dt-auth-main">
+    <div class="card dt-auth-signup">
+        <header>사용자 신규 등록</header>
+        <section>
+            <form method="post" action="{{ url_for('auth.signup', next=request.args.get('next')) }}"
+            novalidate="novalidate"
+                class="form-signin">
+                {{ form.csrf_token }}
+                {% for message in get_flashed_messages() %}
+                <div class="dt-auth-flash">{{ message }}</div>
+                {% endfor %}
+
+                <p>{{ form.username.label }} {{ form.username(size=30, class="form-control dt-auth-input", placeholder="사용자명") }}</p>
+                <p>{{ form.email.label }} {{ form.email(class="form-control dt-auth-input",placeholder="메일 주소") }}</p>
+                <p>{{ form.password.label }} {{ form.password(class="form-control dt-auth-input",placeholder="비밀번호") }}</p>
+                <p>{{ form.submit(class="btn btn-md btn-primary btn-block dt-auth-btn") }}</p>
+            </form>
+        </section>
+    </div>
+</div>
+{% endblock %}
